@@ -1,44 +1,38 @@
-import { Text, TextInput, View, TouchableOpacity, Image } from 'react-native'
-import { styles } from '@/styles/_joinstyle'
-import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context'
-import { FontAwesome, Ionicons } from '@expo/vector-icons'
-import { Link } from 'expo-router'
+import { Text, TextInput, View, TouchableOpacity, Image } from "react-native";
+import { styles } from "@/styles";
+import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
+import { FontAwesome, Ionicons } from "@expo/vector-icons";
 
-export default function SignIn() {
+export default function Index() {
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container}>
-        <View style={styles.iconsection}>
-          <Link href="/">
-            <Ionicons name="arrow-back" size={25} />
-          </Link>
-          <Image source={require('@/assets/images/logo-green.png')} />
+        <View style={styles.navGroup}>
+          <Ionicons name="arrow-back" size={25} />
+          <Image source={require('@/assets/images/logo.png')} />
         </View>
-        <Text style={styles.titleText}>Sign in to your</Text>
-        <Text style={styles.titleText}>Account</Text>
-        <Text style={styles.subText}>
+        <Text style={styles.largeText}>Sign in to your</Text>
+        <Text style={styles.largeText}>Account</Text>
+        <Text style={styles.smallText}>
           Enter your email and password to sign in.
         </Text>
 
         <View style={styles.formGroup}>
           <View>
-            <Text style={styles.formLabel}>Email</Text>
-            <TextInput
-              keyboardType="email-address"
-              style={styles.formControl}
-            />
+            <Text style={styles.placeholderText}>Email</Text>
+            <TextInput keyboardType="email-address" style={styles.inputField} />
           </View>
-          <View>
-            <Text style={styles.formLabel}>Password</Text>
-            <View style={styles.formPasswordControl}>
-              <TextInput style={styles.passwordControl} />
+          <View style={{ marginTop: 20 }}>
+            <Text style={styles.placeholderText}>Password</Text>
+            <View style={styles.passwordGroup}>
+              <TextInput style={{ flex: 1 }} secureTextEntry={true} />
               <FontAwesome name="eye-slash" size={24} color="#7E7B7B" />
             </View>
           </View>
           <Text style={styles.forgotPasswordText}>Forgot password?</Text>
         </View>
 
-        <TouchableOpacity style={styles.primaryButton}>
+        <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Sign in</Text>
         </TouchableOpacity>
 
@@ -48,31 +42,27 @@ export default function SignIn() {
           <View style={styles.divider}></View>
         </View>
 
-        <View style={styles.secondaryButtonGroup}>
-          <TouchableOpacity>
-            <View style={styles.secondaryButton}>
+        <View style={styles.socialMediaButtonGroup}>
+          <TouchableOpacity style={styles.socialMediaButton}>
+            <View style={{ flexDirection: "row", alignItems: "center", gap: 5 }}>
               <Image source={require('@/assets/images/google.png')} />
-              <Text style={styles.secondaryButtonText}>
-                Continue with Google
-              </Text>
+              <Text style={styles.socialMediaButtonText}>Continue with Google</Text>
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity>
-            <View style={styles.secondaryButton}>
+          <TouchableOpacity style={styles.socialMediaButton}>
+            <View style={{ flexDirection: "row", alignItems: "center", gap: 5 }}>
               <Image source={require('@/assets/images/facebook.png')} />
-              <Text style={styles.secondaryButtonText}>
-                Continue with Facebook
-              </Text>
+              <Text style={styles.socialMediaButtonText}>Continue with Facebook</Text>
             </View>
           </TouchableOpacity>
         </View>
 
-        <View style={styles.signupgroup}>
+        <View style={styles.subTextGroup}>
           <Text style={styles.subText}>Don't have an account?</Text>
-          <Text style={styles.signupSubTitleText}>Join now</Text>
+          <Text style={styles.subTextJoin}>Join now</Text>
         </View>
       </SafeAreaView>
     </SafeAreaProvider>
-  )
+  );
 }

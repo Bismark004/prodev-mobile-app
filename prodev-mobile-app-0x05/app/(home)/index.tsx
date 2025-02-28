@@ -30,20 +30,13 @@ const Home = () => {
         </View>
       </View>
 
-      <View
-        style={{
-          height: 72,
-          backgroundColor: "white",
-        }}
-      >
+      <View style={{ height: 72, backgroundColor: "white" }}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           <View style={styles.filterGroup}>
             {FILTERS.map((filter, index) => (
               <View style={styles.filterContainer} key={index}>
                 <Image
-                  style={{
-                    flex: 1,
-                  }}
+                  style={{ flex: 1 }}
                   source={require("@/assets/images/mansion.png")}
                   resizeMode="contain"
                 />
@@ -66,4 +59,4 @@ const Home = () => {
   );
 };
 
-export default Home
+export default Home;
